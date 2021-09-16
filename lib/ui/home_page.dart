@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/model/real_estate.dart';
+import 'package:real_estate_app/ui/detail_page.dart';
 
 import 'card_widget.dart';
 
@@ -21,7 +22,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.grey,
         iconTheme: IconThemeData(color: Colors.grey),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.tune, color: Colors.grey,))],
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.tune,
+                color: Colors.grey,
+              ))
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -33,7 +41,9 @@ class _HomePageState extends State<HomePage> {
                 'Dubai, Palm Jumeirah',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 16,),
+              SizedBox(
+                height: 16,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -52,8 +62,15 @@ class _HomePageState extends State<HomePage> {
               ),
               ...List.generate(
                 realEstateItem.length,
-                (index) => CardWidget(
-                  realEstate: realEstateItem[index],
+                (index) => GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            DetailPage(realEstate: realEstateItem[index])));
+                  },
+                  child: CardWidget(
+                    realEstate: realEstateItem[index],
+                  ),
                 ),
               )
             ],
