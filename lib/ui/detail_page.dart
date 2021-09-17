@@ -146,6 +146,156 @@ class _DetailPageState extends State<DetailPage> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Container(
+                        height: 4,
+                        width: 36,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16,),
+                    Text(
+                      '${widget.realEstate.title ?? '0'}',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.bed_outlined,
+                          size: 20,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          '${widget.realEstate.rooms ?? 2} beds',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Icon(
+                          Icons.bathtub_outlined,
+                          size: 20,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          '${widget.realEstate.bathroom ?? 2} baths',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Icon(
+                          Icons.apps,
+                          size: 20,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          '${widget.realEstate.sqft ?? 2} sqft',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      '${widget.realEstate.detail}',
+                      style: TextStyle(height: 2, color: Colors.blueGrey),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(8)),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 28,
+                              backgroundImage: NetworkImage(
+                                  widget.realEstate.sellerProfile ?? ''),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${widget.realEstate.sellerName}',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text('${widget.realEstate.sellerSubtitle}'),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Text(
+                          '\$ ${widget.realEstate.price}',
+                          style: TextStyle(fontSize: 21),
+                        ),
+                        Spacer(),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurpleAccent,
+                            borderRadius: BorderRadius.circular(32),
+                          ),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.mail_outline,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                'Message',
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.white),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ],
